@@ -8,7 +8,7 @@ class Card:
         self.value = value
 
     def __str__(self):
-        return ("Color: {c}, Suit:{s}, Fill:{f}, Value:{v}"
+        return ("{c}, {s}, {f}, {v}"
         .format(c= self.color, s= self.suit, f= self.fill, v= str(self.value)))
 
 class Color(Enum):
