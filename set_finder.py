@@ -1,23 +1,19 @@
-from card import *
+from card import Card, Color, Suit, Fill
 
-c = Card(Color.red, Suit.diamond, Fill.solid, 3)
 
 def find_sets(cards):
     triplets = combinations(cards, 3)
     sets = []
 
     for t in triplets:
-        if is_set(t):
+        if check_set(t):
             sets.push(t)
     return sets
 
-def is_set(card1, card2, card3):
-  return (
-      values_consistent(card1.color, card2.color, card3.color) and
-      values_consistent(card1.suit, card2.suit, card3.suit) and 
-      values_consistent(card1.fill, card2.fill, card3.fill) and
-      values_consistent(card1.value, card2.value, card3.value)
-  )
-
-def values_consistent(a, b, c):
-  return a == b == c or a != b != c
+def check_set(c1, c2, c3):
+    if ((c1.color == c2.color == c3.color or c1.color != c2.color != c3.color) and
+        (c1.suit == c2.suit == c3.suit or c1.suit != c2.suit != c3.suit) and 
+        (c1.fill == c2.fill == c3.fill or c1.fill != c2.fill != c3.fill) and
+        (c1.value == c2.value == c3.value or c1.value != c2.value != c3.value)):
+            return True
+    return False
