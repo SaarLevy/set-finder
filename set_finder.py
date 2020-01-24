@@ -10,10 +10,11 @@ def find_sets(cards):
             sets.push(t)
     return sets
 
+def values_consistent(a, b, c):
+    return a == b == c or a != b != c
+
 def check_set(c1, c2, c3):
-    if ((c1.color == c2.color == c3.color or c1.color != c2.color != c3.color) and
-        (c1.suit == c2.suit == c3.suit or c1.suit != c2.suit != c3.suit) and 
-        (c1.fill == c2.fill == c3.fill or c1.fill != c2.fill != c3.fill) and
-        (c1.value == c2.value == c3.value or c1.value != c2.value != c3.value)):
-            return True
-    return False
+    return (values_consistent(c1.color, c2.color, c3.color) and
+    values_consistent(c1.suit, c2.suit, c3.suit) and
+    values_consistent(c1.fill, c2.fill, c3.fill) and
+    values_consistent(c1.value, c2.value, c3.value))
