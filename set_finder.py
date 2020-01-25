@@ -1,4 +1,4 @@
-from card import Card, Color, Suit, Fill
+from card import *
 
 
 def find_sets(cards):
