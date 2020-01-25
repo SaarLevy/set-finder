@@ -1,6 +1,6 @@
 import unittest
 import set_finder
-from card import *
+from card import Card, Color, Suit, Fill
 
 class Test_Set_Finder(unittest.TestCase):
 
